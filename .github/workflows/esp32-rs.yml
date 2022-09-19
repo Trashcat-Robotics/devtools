@@ -1,12 +1,14 @@
-name: Build & Publish ESP32 Docker Images
+name: Build & Publish Rust ESP32 Docker Image
 
 on:
   push:
     branches:
       - 'main'
+    paths:
+      - 'docker/esp32-rs/**'
   pull_request:
-    branches:
-      - 'main'
+    paths:
+      - 'docker/esp32-rs/**'
 
 env:
   REGISTRY: ghcr.io
@@ -19,7 +21,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        image: ["esp32-cmake", "esp32-rs"]
+        image: ["esp32-rs"]
 
     steps:
       - name: Checkout repository

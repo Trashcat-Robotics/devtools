@@ -8,7 +8,6 @@ ENV CXX=/usr/bin/clang
 WORKDIR /usr/local/app
 
 RUN apt-get update -y
-
 RUN apt-get install -y \
     clang-format clang-tidy clang-tools clang clangd \
     libc++-dev libc++1 libc++abi-dev libc++abi1 \
