@@ -1,4 +1,4 @@
-FROM espressif/idf
+FROM espressif/idf:latest
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
@@ -14,6 +14,8 @@ RUN apt-get install -y \
     libc++-dev libc++1 libc++abi-dev libc++abi1 \
     libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev \
     libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm \
-    python3-clang 
+    python3-clang python3-pip
+
+RUN python3 -m pip install pre-commit
 
 CMD [ "/bin/bash" ]
