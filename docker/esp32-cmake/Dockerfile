@@ -6,6 +6,7 @@ ENV IDF_PATH=/opt/esp/idf
 ENV CXX=/usr/bin/clang
 
 WORKDIR /usr/local/app
+
 RUN apt-get update -y
 RUN apt-get install -y \
     clang-format clang-tidy clang-tools clang clangd \
