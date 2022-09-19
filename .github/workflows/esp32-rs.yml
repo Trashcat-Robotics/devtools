@@ -9,12 +9,12 @@ on:
     branches:
       - 'main'
     paths:
-      - "docker/$DOCKER_NAME/**/*"
+      - "docker/$DOCKER_NAME/*"
   pull_request:
     branches:
       - 'main'
     paths:
-      - "docker/$DOCKER_NAME/**/*"
+      - "docker/$DOCKER_NAME/*"
 
 jobs:
   build-and-push-image:

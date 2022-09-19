@@ -7,4 +7,5 @@ ENV IDF_PATH=/opt/esp/idf
 WORKDIR /usr/local/app
 
 RUN /opt/esp/idf/install.sh
+
 CMD [ "/bin/bash" ]
