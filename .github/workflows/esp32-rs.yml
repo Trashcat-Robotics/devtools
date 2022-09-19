@@ -1,16 +1,20 @@
 name: Build & Publish Docker Image
 
+env:
+  REGISTRY: ghcr.io
+  DOCKER_NAME: esp32-rs
+
 on:
   push:
     branches:
       - 'main'
+    paths:
+      - 'docker/$DOCKER_NAME/**/*'
   pull_request:
     branches:
       - 'main'
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+    paths:
+      - 'docker/$DOCKER_NAME/**/*'
 
 jobs:
   build-and-push-image:
@@ -20,7 +24,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        image: ["esp32-rs"]
+        image: [$DOCKER_NAME]
 
     steps:
       - name: Checkout repository
@@ -35,7 +39,7 @@ jobs:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
-          registry: ghcr.io
+          registry: ${{ REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
