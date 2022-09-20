@@ -17,4 +17,6 @@ RUN apt-get install -y \
 
 RUN python3 -m pip install pre-commit
 
+RUN . $IDF_PATH/export.sh
+
 CMD [ "/bin/bash" ]
